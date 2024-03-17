@@ -18,14 +18,33 @@ con <- dbConnect(MySQL(), host = "127.0.0.1", port = 3306, user = "root", dbname
 ```{r, message=FALSE, warning=FALSE}
 # Retrieve and display team members' information
 team_members <- dbGetQuery(con, "SELECT first_name, last_name, student_id FROM team_members")
-
 print(team_members)
-
 ```
+
+Cemil Neşe - 21948303
+
+![](images/1707839103954.jpeg){width="181"}
+Ömer Faruk Çiftçi - 21831151
+
+![](images/emre_gul_foto-01.PNG){width="181"}
+
+Emre Gül - 21948121
+
+![](images/cvfoto111.jpeg){width="245"}
+
+Kerem Kaplan - 21948168
+
+![](images/beyzafoto.jpg){width="180"}
+
+Beyza Göktaş - 21948102
+
+Ahmet Taha Karakaya - 21948192
+
+Hatice Nur Güneş - 21948135
 
 **QUESTION 5**
 
--    Find the total number of team members
+-   Find the total number of team members
 
 ```{sql connection= con}
 
@@ -33,7 +52,7 @@ SELECT COUNT(*) AS number_of_members FROM team_members;
 
 ```
 
--    List team members by age from oldest to youngest.
+-   List team members by age from oldest to youngest.
 
 ```{sql connection= con}
 
