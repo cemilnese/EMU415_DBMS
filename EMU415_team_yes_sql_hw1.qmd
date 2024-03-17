@@ -23,6 +23,7 @@ print(team_members)
 
 Cemil Neşe - 21948303
 
+![](images/1707839103954.jpeg){width="181"}
 Ömer Faruk Çiftçi - 21831151
 
 ![](images/emre_gul_foto-01.PNG){width="181"}
