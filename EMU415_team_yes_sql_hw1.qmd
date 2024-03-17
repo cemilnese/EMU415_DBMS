@@ -21,27 +21,19 @@ team_members <- dbGetQuery(con, "SELECT first_name, last_name, student_id FROM t
 print(team_members)
 ```
 
-Cemil Neşe - 21948303
+![](images/cemil-01.jpg){width="181"} Cemil Neşe - 21948303
 
-![](images/1707839103954.jpeg){width="181"}
-Ömer Faruk Çiftçi - 21831151
+![](images/1707839103954.jpeg){width="181"} Ömer Faruk Çiftçi - 21831151
 
-![](images/emre_gul_foto-01.PNG){width="181"}
+![](images/emre_gul_foto-01.PNG){width="181"} Emre Gül - 21948121
 
-Emre Gül - 21948121
+![](images/foto_cv.jpeg){width="181"} Kerem Kaplan - 21948168
 
-![](images/cvfoto111.jpeg){width="245"}
+![](images/beyzafoto.jpg){width="180"} Beyza Göktaş - 21948102
 
-Kerem Kaplan - 21948168
+![](images/di_caprio.jpeg){width="181"} Ahmet Taha Karakaya - 21948192
 
-![](images/beyzafoto.jpg){width="180"}
-
-Beyza Göktaş - 21948102
-
-![](images/di_caprio.jpeg){width="181"}
-Ahmet Taha Karakaya - 21948192
-
-Hatice Nur Güneş - 21948135
+![](images/hatice_foto-03.jpg){width="181"} Hatice Nur Güneş - 21948135
 
 **QUESTION 5**
 
