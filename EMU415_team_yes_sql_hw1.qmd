@@ -1,0 +1,82 @@
+---
+title: "EMU415 DBMS Homework1"
+author: "team_yes_sql"
+output:
+  quarto::quarto_html:
+    self_contained: true
+    keep_md: true
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(DBI)
+library(RMySQL)  
+con <- dbConnect(MySQL(), host = "127.0.0.1", port = 3306, user = "root", dbname = "EMU415_yes_sql")
+```
+
+**TEAM MEMBERS**
+
+```{r, message=FALSE, warning=FALSE}
+# Retrieve and display team members' information
+team_members <- dbGetQuery(con, "SELECT first_name, last_name, student_id FROM team_members")
+
+print(team_members)
+
+```
+
+**QUESTION 5**
+
+-    Find the total number of team members
+
+```{sql connection= con}
+
+SELECT COUNT(*) AS number_of_members FROM team_members;
+
+```
+
+-    List team members by age from oldest to youngest.
+
+```{sql connection= con}
+
+SELECT member_id, first_name, last_name, student_id, age FROM team_members ORDER BY age DESC;
+
+```
+
+-   Identify the range of expected graduation years within your team
+
+    ```{sql connection= con}
+
+    SELECT DISTINCT graduation_year FROM team_members;
+    ```
+
+-   Analyze the distribution of team members across different joining years
+
+    ```{sql connection= con}
+
+    SELECT COUNT(*) AS joined_2018 FROM team_members WHERE join_year = 2018;
+
+    ```
+
+    ```{sql connection= con}
+
+    SELECT COUNT(*) AS joined_2019 FROM team_members WHERE join_year = 2019;
+
+    ```
+
+**QUESTION 6**
+
+```{sql connection= con}
+
+SELECT
+    SHA1(CONCAT(
+        COUNT(*),
+        '-',
+        MIN(graduation_year),
+        '-',
+        AVG(age)
+    )) AS team_identifier
+FROM
+    team_members;
+
+```
+
+Cryptographic algorithms like SHA-1 are used in database management for various purposes, such as ensuring data integrity and security. For example, SHA-1 hashes can be computed for sensitive data like passwords before storing them in the database, making it difficult for attackers to recover the original passwords. Additionally, SHA-1 hashes can be used to verify the integrity of data stored in the database, ensuring that it has not been tampered with.
