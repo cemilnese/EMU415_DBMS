@@ -7,7 +7,8 @@ output:
     keep_md: true
 ---
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+First of all connection is established between R studio and our database.
+```{r, message=FALSE, warning=FALSE}
 library(DBI)
 library(RMySQL)  
 con <- dbConnect(MySQL(), host = "127.0.0.1", port = 3306, user = "root", dbname = "EMU415_yes_sql")
@@ -21,7 +22,7 @@ team_members <- dbGetQuery(con, "SELECT first_name, last_name, student_id FROM t
 print(team_members)
 ```
 
-![](images/cemil-01.jpg){width="181"} Cemil Neşe - 21948303
+![](images/cemill.jpeg){width="181"} Cemil Neşe - 21948303
 
 ![](images/1707839103954.jpeg){width="181"} Ömer Faruk Çiftçi - 21831151
 
