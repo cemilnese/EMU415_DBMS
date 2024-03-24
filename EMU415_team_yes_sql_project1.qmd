@@ -1,0 +1,149 @@
+---
+title: "EMU415 DBMS Term Project"
+author: "team_yes_sql"
+output:
+  quarto::quarto_html:
+    self_contained: true
+    keep_md: true
+format:
+  pdf:
+    colorlinks: true
+---
+
+## Team Members
+
+Cemil Neşe - 21948303
+
+Ömer Faruk Çiftçi - 21831151
+
+Emre Gül - 21948121
+
+Kerem Kaplan - 21948168
+
+Beyza Göktaş - 21948102
+
+Ahmet Taha Karakaya - 21948192
+
+Hatice Nur Güneş - 21948135
+
+## Objective
+
+The EMU Hacettepe Personal Development Platform is a platform aimed at increasing knowledge exchange among students and graduates of the Industrial Engineering Department at Hacettepe University. It aims to enhance students' skills by sharing information on which industries our graduates work in, and how they acquire the necessary knowledge in these sectors.
+
+## Features
+
+-   **Graduate Sector Insights:** A feature allowing graduates to share their industry experiences, including sectors they work in, knowledge acquisition methods, and career development tips. Skill and Knowledge
+
+-   **Gap Identification:** Tools to help students identify areas for improvement by comparing their current skills and knowledge with those of graduates in various industries.
+
+-   **Resource Sharing Platform:** A platform for sharing industry-specific resources such as articles, webinars, and online courses (Udemy, Coursera etc.) to enhance students' skills and knowledge.
+
+## Relations and Their Attributes as an Initial Design
+
+1.  **users**
+
+    -   user_id (Primary Key)
+    -   first_name
+    -   last_name
+    -   email
+    -   role (e.g., Student, Researcher, Graduate)
+    -   join_date
+    -   graudation_date
+    -   erasmus_id (Foreign Key)
+    -   master_id (Foreign Key)
+    -   job_id (Foreign Key)
+    -   grad_project_id (Foreign Key)
+    -   linkedin
+
+2.  **jobs**
+
+    -   job_id (Primary Key)
+    -   position_title
+    -   description
+    -   skills_required (Foreign Key (skill_id))
+    -   company_id (Foreign Key)
+    -   location
+    -   salary_range
+    -   starting_date
+
+3.  **erasmus**
+
+    -   erasmus_id (Primary Key)
+    -   school_name
+    -   country
+    -   duration
+    -   department
+
+4.  **master**
+
+    -   master_id (Primary Key)
+    -   master_school_name
+    -   department
+    -   city
+
+5.  **graduation_projects**
+
+    -   grad_project_id (Primary Key)
+    -   title
+    -   description
+    -   company_id (Foreign Key)
+    -   skills_required (Foreign Key (skill_id))
+
+6.  **companies**
+
+    -   company_id (Primary Key)
+    -   company_name
+    -   sector
+    -   founding_year
+    -   employee_number
+
+7.  **skills**
+
+    -   skill_id (Primary Key)
+    -   user_id (Foreign Key)
+    -   skill_name
+    -   skill_level
+    -   last_used
+    -   experience_years
+    -   related_projects
+    -   skill_source
+
+## Relations
+
+1.  **Users**:
+
+    -   **One-to-One**: Each user may have only one Erasmus ID, Master ID, Job ID, Graduation Project ID, and LinkedIn profile.
+
+    -   **Many-to-One**: Many users can have the same role (e.g., Student, Researcher, Graduate).
+
+2.  **Jobs**:
+
+    -   **Many-to-One**: Many jobs can belong to the same company.
+
+    -   **One-to-Many**: Each job requires multiple skills.
+
+3.  **Erasmus**:
+
+    -   **One-to-Many**: Each Erasmus program can have multiple students (users).
+
+4.  **Master**:
+
+    -   **One-to-Many**: Each Master program can have multiple students (users).
+
+5.  **Graduation Projects**:
+
+    -   **Many-to-One**: Many graduation projects can belong to the same company.
+
+    -   **One-to-Many**: Each graduation project requires multiple skills.
+
+6.  **Companies**:
+
+    -   **One-to-Many**: Many users can work for the same company.
+
+7.  **Skills**:
+
+    -   **Many-to-One**: Many users can have the same skill.
+
+## Database Schema
+
+![](images/drawSQL-image-export-2024-03-24-01.png)
