@@ -53,31 +53,28 @@ The EMU Hacettepe Personal Development Platform is a platform aimed at increasin
     -   master_id (Foreign Key)
     -   job_id (Foreign Key)
     -   grad_project_id (Foreign Key)
+    -   skill_id (Foreign Key)
     -   linkedin
 
 2.  **jobs**
 
     -   job_id (Primary Key)
     -   position_title
-    -   description
-    -   skills_required (Foreign Key (skill_id))
     -   company_id (Foreign Key)
     -   location
-    -   salary_range
     -   starting_date
 
 3.  **erasmus**
 
     -   erasmus_id (Primary Key)
-    -   school_name
+    -   institution_name
     -   country
-    -   duration
     -   department
 
 4.  **master**
 
     -   master_id (Primary Key)
-    -   master_school_name
+    -   institution_name
     -   department
     -   city
 
@@ -85,28 +82,26 @@ The EMU Hacettepe Personal Development Platform is a platform aimed at increasin
 
     -   grad_project_id (Primary Key)
     -   title
-    -   description
     -   company_id (Foreign Key)
-    -   skills_required (Foreign Key (skill_id))
 
 6.  **companies**
 
     -   company_id (Primary Key)
     -   company_name
-    -   sector
     -   founding_year
     -   employee_number
 
 7.  **skills**
 
     -   skill_id (Primary Key)
-    -   user_id (Foreign Key)
     -   skill_name
-    -   skill_level
-    -   last_used
-    -   experience_years
-    -   related_projects
-    -   skill_source
+
+8.  **bsc_school**
+
+    -   school_id (Primary Key)
+    -   school_name
+    -   department
+    -   city
 
 ## Relations
 
@@ -120,15 +115,13 @@ The EMU Hacettepe Personal Development Platform is a platform aimed at increasin
 
     -   **Many-to-One**: Many jobs can belong to the same company.
 
-    -   **One-to-Many**: Each job requires multiple skills.
-
 3.  **Erasmus**:
 
-    -   **One-to-Many**: Each Erasmus program can have multiple students (users).
+    -   **One-to-Many**: Each institution can have multiple students (users).
 
 4.  **Master**:
 
-    -   **One-to-Many**: Each Master program can have multiple students (users).
+    -   **One-to-Many**: Each institution can have multiple students (users).
 
 5.  **Graduation Projects**:
 
@@ -146,4 +139,40 @@ The EMU Hacettepe Personal Development Platform is a platform aimed at increasin
 
 ## Database Schema
 
-![](images/drawSQL-image-export-2024-03-24-01.png)
+![](images/drawSQL-image-export-2024-05-13 (1).png)
+
+## Entity-Relationship Diagram
+
+![](images/Ekran görüntüsü 2024-05-13 121534.png){width="640"}
+
+## Implementation
+
+Here are some examples of creation of tables, inserting into tables, updating and dropping columns;
+
+![](images/Ekran görüntüsü 2024-05-13 125354.png){width="419"}
+
+![](images/Ekran görüntüsü 2024-05-13 125655.png){width="501"}
+
+![](images/Ekran görüntüsü 2024-05-13 125857.png){width="554"}
+
+![](images/Ekran görüntüsü 2024-05-13 130011.png){width="382"}
+
+## Query Results
+
+This query retrieves information about users who work in companies established after 1900 and have more than 100,000 employees, including their first name, last name, company name, job start date, job end date, location, position title, and employee number:
+
+![](images/Ekran görüntüsü 2024-05-13 131623.png)
+
+![](images/WhatsApp Görsel 2024-05-13 saat 13.14.42_5ba4de00.jpg)
+
+This query retrieves the first name, last name, school name, and department of users who have undergraduate education:
+
+![](images/Ekran görüntüsü 2024-05-13 131835.png){width="546"}
+
+![](images/WhatsApp Görsel 2024-05-13 saat 13.17.19_2ec56eb7.jpg){width="383"}
+
+## Application of Project
+
+After entering the necessary information for a graduate, the Curriculum Vitae Timeline will appear as follows:
+
+![](images/WhatsApp Görsel 2024-05-13 saat 12.01.11_cfb76c59.jpg)
